@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Pu-3Z-Hcz">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Phone View Controller-->
@@ -15,9 +16,89 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transponder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFP-9Y-aUc">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="9eK-as-PFO"/>
+                                    <constraint firstAttribute="width" secondItem="WFP-9Y-aUc" secondAttribute="height" multiplier="118:29" id="usR-h7-qcw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="42"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9eK-as-PFO"/>
+                                        <exclude reference="usR-h7-qcw"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="9eK-as-PFO"/>
+                                        <include reference="usR-h7-qcw"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fd3-YN-avh">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Fd3-YN-avh" secondAttribute="height" multiplier="46:11" id="Ifn-OQ-FjW"/>
+                                    <constraint firstAttribute="height" constant="44" id="qQh-zD-gRr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="28"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Ifn-OQ-FjW"/>
+                                        <exclude reference="qQh-zD-gRr"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Ifn-OQ-FjW"/>
+                                        <include reference="qQh-zD-gRr"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.17254901960784313" green="0.24313725490196078" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WFP-9Y-aUc" firstAttribute="top" secondItem="Fd3-YN-avh" secondAttribute="bottom" id="55P-EV-ryO"/>
+                            <constraint firstAttribute="centerX" secondItem="Fd3-YN-avh" secondAttribute="centerX" id="9LO-U8-aap"/>
+                            <constraint firstItem="Fd3-YN-avh" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="79" id="d7l-fr-kcI"/>
+                            <constraint firstAttribute="centerX" secondItem="WFP-9Y-aUc" secondAttribute="centerX" id="tMg-s4-l23"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="WFP-9Y-aUc"/>
+                                <exclude reference="Fd3-YN-avh"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="9LO-U8-aap"/>
+                                <exclude reference="d7l-fr-kcI"/>
+                                <exclude reference="55P-EV-ryO"/>
+                                <exclude reference="tMg-s4-l23"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="WFP-9Y-aUc"/>
+                                <include reference="Fd3-YN-avh"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="9LO-U8-aap"/>
+                                <include reference="d7l-fr-kcI"/>
+                                <include reference="55P-EV-ryO"/>
+                                <include reference="tMg-s4-l23"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="BtZ-Gl-z9q"/>
+                    <connections>
+                        <outlet property="transponderLabel" destination="WFP-9Y-aUc" id="YxI-bs-zH7"/>
+                        <outlet property="welcomeLabel" destination="Fd3-YN-avh" id="r1A-KF-SkP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

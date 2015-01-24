@@ -10,4 +10,10 @@
 
 @interface PhoneViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UILabel *welcomeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *transponderLabel;
+
+@property (strong, nonatomic) UILabel *startLabel;
+@property (strong, nonatomic) UILabel *enterLabel;
+
 @end
