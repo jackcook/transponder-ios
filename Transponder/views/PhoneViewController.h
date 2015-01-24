@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  PhoneViewController.h
 //  Transponder
 //
 //  Created by Jack Cook on 1/24/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface PhoneViewController : UIViewController
 
 @end
-
