@@ -15,4 +15,6 @@
 @property (nonatomic) int setupPhoneNumber;
 @property (strong, nonatomic) NSArray *setupEmergencyContacts;
 
+@property (strong, nonatomic) NSDictionary *venue;
+
 @end

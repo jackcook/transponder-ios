@@ -28,6 +28,15 @@
     [self.locationManager startUpdatingLocation];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    NSDictionary *venue = [Common sharedInstance].venue;
+    if (venue == nil) {
+        self.placeLabel.text = @"Not Set";
+    } else {
+        self.placeLabel.text = venue[@"name"];
+    }
+}
+
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     CLLocation *location = locations.lastObject;
     self.latitude = location.coordinate.latitude;
@@ -41,7 +50,16 @@
 }
 
 - (IBAction)startTripPressed:(id)sender {
-    [self performSegueWithIdentifier:@"tripSegue" sender:self];
+    TripViewController *tvc = [self.storyboard instantiateViewControllerWithIdentifier:@"TripViewController"];
+    
+    int current = TIMESTAMP / 60;
+    int last = TIMESTAMP / 60;
+    tvc.current = [NSNumber numberWithInt:self.minutesTextField.text.intValue - (current - last)];
+    tvc.total = [NSNumber numberWithInteger:self.minutesTextField.text.intValue];
+    
+    tvc.minutes = 50 / (self.minutesTextField.text.intValue) * (self.minutesTextField.text.intValue - (current - last));
+    
+    [self presentViewController:tvc animated:true completion:nil];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Users"];
     [query whereKey:@"objectId" equalTo:[[NSUserDefaults standardUserDefaults] objectForKey:@"UserObjectID"]];
@@ -56,6 +74,14 @@
     }];
     
     [self.locationManager stopUpdatingLocation];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"searchSegue"]) {
+        SearchViewController *svc = (SearchViewController *)segue.destinationViewController;
+        svc.latitude = self.latitude;
+        svc.longitude = self.longitude;
+    }
 }
 
 - (BOOL)prefersStatusBarHidden {

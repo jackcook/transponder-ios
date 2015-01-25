@@ -13,6 +13,8 @@
 @synthesize setupPhoneNumber;
 @synthesize setupEmergencyContacts;
 
+@synthesize venue;
+
 static Common *instance = nil;
 
 + (Common *)sharedInstance {
