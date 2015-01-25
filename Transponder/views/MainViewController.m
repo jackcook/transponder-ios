@@ -43,7 +43,7 @@
 - (IBAction)startTripPressed:(id)sender {
     [self performSegueWithIdentifier:@"tripSegue" sender:self];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+    /*PFQuery *query = [PFQuery queryWithClassName:@"Users"];
     [query whereKey:@"objectId" equalTo:[[NSUserDefaults standardUserDefaults] objectForKey:@"UserObjectID"]];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         object[@"latitude"] = @(self.latitude);
@@ -53,7 +53,7 @@
         object[@"lastPing"] = [NSNumber numberWithInt:TIMESTAMP];
         object[@"lastResponse"] = [NSNumber numberWithInt:TIMESTAMP];
         [object saveInBackground];
-    }];
+    }];*/
     
     [self.locationManager stopUpdatingLocation];
 }

@@ -23,27 +23,17 @@
     self.circleChart.circleBackground.strokeColor = [UIColor colorWithRed:(4.0 / 255.0) green:(22.0 / 255.0) blue:(40.0 / 255.0) alpha:1].CGColor;
     
     [self.chartHolder addSubview:self.circleChart];
-    
-    self.circleChart.countingLabel.font = [UIFont fontWithName:@"Avenir-Roman" size:32];
-    self.circleChart.countingLabel.format = @"%d";
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    NSString *userID = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserObjectID"];
+    self.circleChart.current = self.current;
+    self.circleChart.total = self.total;
+    [self.circleChart strokeChart];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
-    [query whereKey:@"objectId" equalTo:[[NSUserDefaults standardUserDefaults] objectForKey:@"UserObjectID"]];
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if (!error) {
-            int current = TIMESTAMP / 60;
-            int last = (int) [query valueForKey:@"lastPing"] / 60;
-            self.circleChart.current = [NSNumber numberWithInt:current - last];
-            self.circleChart.total = [NSNumber numberWithInt:(int) [query valueForKey:@"pingInterval"]];
-            [self.circleChart strokeChart];
-        } else {
-            NSLog(@"%@", error);
-        }
-    }];
+    self.circleChart.countingLabel.font = [UIFont fontWithName:@"Avenir-Roman" size:42];
+    self.circleChart.countingLabel.format = @"%d";
+    
+    self.pingLabel.text = [NSString stringWithFormat:@"You will be pinged in %d minutes", self.minutes];
 }
 
 - (IBAction)cancelButton:(id)sender {
@@ -51,6 +41,13 @@
     [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:@"Transponder needs Touch ID to verify it's you" reply:^(BOOL success, NSError *error) {
         if (success) {
             [self.navigationController popViewControllerAnimated:YES];
+            
+            PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+            [query whereKey:@"objectId" equalTo:[[NSUserDefaults standardUserDefaults] objectForKey:@"UserObjectID"]];
+            [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+                object[@"onTrip"] = [NSNumber numberWithBool:NO];
+                [object saveInBackground];
+            }];
         }
     }];
 }

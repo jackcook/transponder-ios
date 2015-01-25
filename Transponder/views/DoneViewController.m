@@ -28,7 +28,7 @@
     NSString *contactsString = [emergencyContactNumbers componentsJoinedByString:@","];
     
     PFObject *userObject = [PFObject objectWithClassName:@"Users"];
-    userObject[@"contacts"] = [[[[contactsString stringByReplacingOccurrencesOfString:@"-" withString:@""] stringByReplacingOccurrencesOfString:@"(" withString:@""] stringByReplacingOccurrencesOfString:@")" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    userObject[@"contacts"] = [[[[[contactsString stringByReplacingOccurrencesOfString:@"-" withString:@""] stringByReplacingOccurrencesOfString:@"(" withString:@""] stringByReplacingOccurrencesOfString:@")" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
     [userObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [[NSUserDefaults standardUserDefaults] setObject:userObject.objectId forKey:@"UserObjectID"];
         [[NSUserDefaults standardUserDefaults] synchronize];
@@ -36,7 +36,8 @@
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self performSegueWithIdentifier:@"mainSegue" sender:self];
+    MainViewController *mvc = [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+    [self presentViewController:mvc animated:true completion:nil];
 }
 
 - (BOOL)prefersStatusBarHidden {

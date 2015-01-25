@@ -11,6 +11,7 @@
 #import "Common.h"
 #import <Parse/Parse.h>
 #import "APContact.h"
+#import "MainViewController.h"
 
 @interface DoneViewController : UIViewController<CLLocationManagerDelegate>
 

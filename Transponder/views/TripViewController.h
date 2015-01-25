@@ -14,8 +14,13 @@
 
 @interface TripViewController : UIViewController
 
+@property (nonatomic) NSNumber *current;
+@property (nonatomic) NSNumber *total;
+@property (nonatomic) int minutes;
+
 @property (strong, nonatomic) PNCircleChart *circleChart;
 
 @property (strong, nonatomic) IBOutlet UIView *chartHolder;
+@property (strong, nonatomic) IBOutlet UILabel *pingLabel;
 
 @end

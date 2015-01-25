@@ -20,6 +20,7 @@
 		EB1067FC1A74467B00BA4E5B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB1067FB1A74467B00BA4E5B /* Images.xcassets */; };
 		EB1067FF1A74467B00BA4E5B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB1067FD1A74467B00BA4E5B /* LaunchScreen.xib */; };
 		EB10680B1A74467B00BA4E5B /* TransponderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10680A1A74467B00BA4E5B /* TransponderTests.m */; };
+		EB7343EF1A7511CA00C99B2C /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7343EE1A7511CA00C99B2C /* LoadingViewController.m */; };
 		EBF071761A74506400BE70E5 /* PhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF071751A74506400BE70E5 /* PhoneViewController.m */; };
 		EBF071791A74755700BE70E5 /* DoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF071781A74755700BE70E5 /* DoneViewController.m */; };
 		EBF0717F1A747BE200BE70E5 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF0717E1A747BE200BE70E5 /* ContactsViewController.m */; };
@@ -60,6 +61,8 @@
 		EB1068041A74467B00BA4E5B /* TransponderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransponderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB1068091A74467B00BA4E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB10680A1A74467B00BA4E5B /* TransponderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransponderTests.m; sourceTree = "<group>"; };
+		EB7343ED1A7511CA00C99B2C /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadingViewController.h; path = views/LoadingViewController.h; sourceTree = "<group>"; };
+		EB7343EE1A7511CA00C99B2C /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoadingViewController.m; path = views/LoadingViewController.m; sourceTree = "<group>"; };
 		EBF071741A74506400BE70E5 /* PhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhoneViewController.h; path = views/PhoneViewController.h; sourceTree = "<group>"; };
 		EBF071751A74506400BE70E5 /* PhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhoneViewController.m; path = views/PhoneViewController.m; sourceTree = "<group>"; };
 		EBF071771A74755700BE70E5 /* DoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DoneViewController.h; path = views/DoneViewController.h; sourceTree = "<group>"; };
@@ -159,6 +162,8 @@
 				EB10030B1A74962D00361A75 /* MainViewController.m */,
 				EB1003111A74C48F00361A75 /* TripViewController.h */,
 				EB1003121A74C48F00361A75 /* TripViewController.m */,
+				EB7343ED1A7511CA00C99B2C /* LoadingViewController.h */,
+				EB7343EE1A7511CA00C99B2C /* LoadingViewController.m */,
 			);
 			path = Transponder;
 			sourceTree = "<group>";
@@ -332,6 +337,7 @@
 				EBF0717F1A747BE200BE70E5 /* ContactsViewController.m in Sources */,
 				EBF071761A74506400BE70E5 /* PhoneViewController.m in Sources */,
 				EB10030C1A74962D00361A75 /* MainViewController.m in Sources */,
+				EB7343EF1A7511CA00C99B2C /* LoadingViewController.m in Sources */,
 				EB1067F41A74467B00BA4E5B /* AppDelegate.m in Sources */,
 				EB1067F11A74467B00BA4E5B /* main.m in Sources */,
 			);
