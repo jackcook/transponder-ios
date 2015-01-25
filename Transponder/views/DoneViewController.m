@@ -27,4 +27,12 @@
     CLLocation *location = locations.lastObject;
 }
 
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self performSegueWithIdentifier:@"mainSegue" sender:self];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 @end
