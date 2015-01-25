@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "APAddressBook.h"
-#import <AddressBook/AddressBook.h>
-#import <AddressBookUI/AddressBookUI.h>
+#import "APContact.h"
 
 @interface ContactsViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 

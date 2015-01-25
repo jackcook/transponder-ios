@@ -17,61 +17,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    tableview.delegate = self;
-    tableview.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
-    RetrievedNamesMutableArray = [NSMutableArray array];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    
-    [RetrievedNamesMutableArray removeAllObjects];
-    
-    ABAddressBookRef UsersAddressBook = ABAddressBookCreate();
-    
-    //contains details for all the contacts
-    CFArrayRef ContactInfoArray = ABAddressBookCopyArrayOfAllPeople(UsersAddressBook);
-    
-    //get the total number of count of the users contact
-    CFIndex numberofPeople = CFArrayGetCount(ContactInfoArray);
-    
-    //iterate through each record and add the value in the array
-    for (int i =0; i<numberofPeople; i++) {
-        ABRecordRef ref = CFArrayGetValueAtIndex(ContactInfoArray, i);
-        ABMultiValueRef names = (__bridge ABMultiValueRef)((__bridge NSString*)ABRecordCopyValue(ref, kABPersonFirstNameProperty));
-        NSLog(@"name = %@",names);
-        [RetrievedNamesMutableArray addObject:(__bridge id)(names)];
+    APAddressBook *addressBook = [[APAddressBook alloc] init];
+    addressBook.fieldsMask = APContactFieldFirstName;
+    [addressBook loadContacts:^(NSArray *contacts, NSError *error) {
+        self.retrievedContacts = contacts;
         
-    }
-    //finally reload the table to see the first name in the table view
-    [tableview reloadData];
+        [self.tableView reloadData];
+    }];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return [RetrievedNamesMutableArray count];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.retrievedContacts.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [[UITableViewCell alloc] init];
     
-    UITableViewCell *cell = [tableview dequeueReusableCellWithIdentifier:CellIdentifier];
-        
-    // Configure the cell...
-    
-    if ([RetrievedNamesMutableArray count]>0) {
-        cell.textLabel.text = [RetrievedNamesMutableArray objectAtIndex:indexPath.row];
-        
-    }
-    
+    APContact *contact = self.retrievedContacts[indexPath.row];
+    cell.textLabel.text = contact.firstName;
     
     return cell;
 }

@@ -141,10 +141,6 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="bzE-VH-nGw" id="Uva-V8-xwS"/>
-                                    <outlet property="delegate" destination="bzE-VH-nGw" id="Hex-gW-o8R"/>
-                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Emergency Contacts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYr-9X-gBh">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -275,7 +271,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="hBu-km-2mA"/>
                     <connections>
-                        <outlet property="tableview" destination="d8y-eJ-oSn" id="bj9-Ju-ql5"/>
+                        <outlet property="tableView" destination="d8y-eJ-oSn" id="7yH-cH-0vQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IC5-PB-xX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
