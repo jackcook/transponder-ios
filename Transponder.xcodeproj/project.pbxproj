@@ -10,12 +10,18 @@
 		16289B631A745F8000DF5847 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16289B621A745F8000DF5847 /* AddressBook.framework */; };
 		16289B651A745F8700DF5847 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16289B641A745F8700DF5847 /* AddressBookUI.framework */; };
 		2B7014D544CC6EA20B97EB9B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4767BCE0CA619072E63D3BD3 /* libPods.a */; };
+		EB1003091A748AFC00361A75 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1003081A748AFC00361A75 /* Common.m */; };
+		EB10030C1A74962D00361A75 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10030B1A74962D00361A75 /* MainViewController.m */; };
+		EB1003101A74AAD400361A75 /* UILabel+WhiteUIDatePickerLabels.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10030F1A74AAD400361A75 /* UILabel+WhiteUIDatePickerLabels.m */; };
+		EB1003131A74C48F00361A75 /* TripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1003121A74C48F00361A75 /* TripViewController.m */; };
 		EB1067F11A74467B00BA4E5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1067F01A74467B00BA4E5B /* main.m */; };
 		EB1067F41A74467B00BA4E5B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1067F31A74467B00BA4E5B /* AppDelegate.m */; };
 		EB1067FA1A74467B00BA4E5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB1067F81A74467B00BA4E5B /* Main.storyboard */; };
 		EB1067FC1A74467B00BA4E5B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB1067FB1A74467B00BA4E5B /* Images.xcassets */; };
 		EB1067FF1A74467B00BA4E5B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB1067FD1A74467B00BA4E5B /* LaunchScreen.xib */; };
 		EB10680B1A74467B00BA4E5B /* TransponderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10680A1A74467B00BA4E5B /* TransponderTests.m */; };
+		EB7343EF1A7511CA00C99B2C /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7343EE1A7511CA00C99B2C /* LoadingViewController.m */; };
+		EB7343F21A751AE600C99B2C /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7343F11A751AE600C99B2C /* SearchViewController.m */; };
 		EBF071761A74506400BE70E5 /* PhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF071751A74506400BE70E5 /* PhoneViewController.m */; };
 		EBF071791A74755700BE70E5 /* DoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF071781A74755700BE70E5 /* DoneViewController.m */; };
 		EBF0717F1A747BE200BE70E5 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF0717E1A747BE200BE70E5 /* ContactsViewController.m */; };
@@ -37,6 +43,14 @@
 		4767BCE0CA619072E63D3BD3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FCF838426DB7D30D8631581 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A7A1B6526BFE2190156FDF74 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EB1003071A748AFC00361A75 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		EB1003081A748AFC00361A75 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		EB10030A1A74962D00361A75 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = views/MainViewController.h; sourceTree = "<group>"; };
+		EB10030B1A74962D00361A75 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = views/MainViewController.m; sourceTree = "<group>"; };
+		EB10030E1A74AAD400361A75 /* UILabel+WhiteUIDatePickerLabels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+WhiteUIDatePickerLabels.h"; sourceTree = "<group>"; };
+		EB10030F1A74AAD400361A75 /* UILabel+WhiteUIDatePickerLabels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+WhiteUIDatePickerLabels.m"; sourceTree = "<group>"; };
+		EB1003111A74C48F00361A75 /* TripViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TripViewController.h; path = views/TripViewController.h; sourceTree = "<group>"; };
+		EB1003121A74C48F00361A75 /* TripViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TripViewController.m; path = views/TripViewController.m; sourceTree = "<group>"; };
 		EB1067EB1A74467B00BA4E5B /* Transponder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transponder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB1067EF1A74467B00BA4E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB1067F01A74467B00BA4E5B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -48,6 +62,10 @@
 		EB1068041A74467B00BA4E5B /* TransponderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransponderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB1068091A74467B00BA4E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB10680A1A74467B00BA4E5B /* TransponderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransponderTests.m; sourceTree = "<group>"; };
+		EB7343ED1A7511CA00C99B2C /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadingViewController.h; path = views/LoadingViewController.h; sourceTree = "<group>"; };
+		EB7343EE1A7511CA00C99B2C /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoadingViewController.m; path = views/LoadingViewController.m; sourceTree = "<group>"; };
+		EB7343F01A751AE600C99B2C /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = views/SearchViewController.h; sourceTree = "<group>"; };
+		EB7343F11A751AE600C99B2C /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = views/SearchViewController.m; sourceTree = "<group>"; };
 		EBF071741A74506400BE70E5 /* PhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhoneViewController.h; path = views/PhoneViewController.h; sourceTree = "<group>"; };
 		EBF071751A74506400BE70E5 /* PhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhoneViewController.m; path = views/PhoneViewController.m; sourceTree = "<group>"; };
 		EBF071771A74755700BE70E5 /* DoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DoneViewController.h; path = views/DoneViewController.h; sourceTree = "<group>"; };
@@ -96,6 +114,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EB10030D1A74AABE00361A75 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				EB10030E1A74AAD400361A75 /* UILabel+WhiteUIDatePickerLabels.h */,
+				EB10030F1A74AAD400361A75 /* UILabel+WhiteUIDatePickerLabels.m */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
 		EB1067E21A74467B00BA4E5B = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +146,7 @@
 		EB1067ED1A74467B00BA4E5B /* Transponder */ = {
 			isa = PBXGroup;
 			children = (
+				EB10030D1A74AABE00361A75 /* util */,
 				EB1067F21A74467B00BA4E5B /* AppDelegate.h */,
 				EB1067F31A74467B00BA4E5B /* AppDelegate.m */,
 				EB1067F81A74467B00BA4E5B /* Main.storyboard */,
@@ -131,6 +159,16 @@
 				EBF071781A74755700BE70E5 /* DoneViewController.m */,
 				EBF071741A74506400BE70E5 /* PhoneViewController.h */,
 				EBF071751A74506400BE70E5 /* PhoneViewController.m */,
+				EB1003071A748AFC00361A75 /* Common.h */,
+				EB1003081A748AFC00361A75 /* Common.m */,
+				EB10030A1A74962D00361A75 /* MainViewController.h */,
+				EB10030B1A74962D00361A75 /* MainViewController.m */,
+				EB1003111A74C48F00361A75 /* TripViewController.h */,
+				EB1003121A74C48F00361A75 /* TripViewController.m */,
+				EB7343ED1A7511CA00C99B2C /* LoadingViewController.h */,
+				EB7343EE1A7511CA00C99B2C /* LoadingViewController.m */,
+				EB7343F01A751AE600C99B2C /* SearchViewController.h */,
+				EB7343F11A751AE600C99B2C /* SearchViewController.m */,
 			);
 			path = Transponder;
 			sourceTree = "<group>";
@@ -212,6 +250,7 @@
 				TargetAttributes = {
 					EB1067EA1A74467B00BA4E5B = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = JDJKS788L2;
 					};
 					EB1068031A74467B00BA4E5B = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -296,9 +335,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB1003131A74C48F00361A75 /* TripViewController.m in Sources */,
+				EB1003091A748AFC00361A75 /* Common.m in Sources */,
 				EBF071791A74755700BE70E5 /* DoneViewController.m in Sources */,
+				EB1003101A74AAD400361A75 /* UILabel+WhiteUIDatePickerLabels.m in Sources */,
 				EBF0717F1A747BE200BE70E5 /* ContactsViewController.m in Sources */,
 				EBF071761A74506400BE70E5 /* PhoneViewController.m in Sources */,
+				EB10030C1A74962D00361A75 /* MainViewController.m in Sources */,
+				EB7343EF1A7511CA00C99B2C /* LoadingViewController.m in Sources */,
+				EB7343F21A751AE600C99B2C /* SearchViewController.m in Sources */,
 				EB1067F41A74467B00BA4E5B /* AppDelegate.m in Sources */,
 				EB1067F11A74467B00BA4E5B /* main.m in Sources */,
 			);
@@ -423,6 +468,7 @@
 			baseConfigurationReference = A7A1B6526BFE2190156FDF74 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Transponder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -434,6 +480,7 @@
 			baseConfigurationReference = 9FCF838426DB7D30D8631581 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Transponder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

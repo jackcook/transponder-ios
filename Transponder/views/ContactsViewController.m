@@ -17,63 +17,66 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    tableview.delegate = self;
-    tableview.dataSource = self;
+    self.emergencyContacts = [NSMutableArray array];
     
-    RetrievedNamesMutableArray = [NSMutableArray array];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
-    [RetrievedNamesMutableArray removeAllObjects];
-    
-    ABAddressBookRef UsersAddressBook = ABAddressBookCreate();
-    
-    //contains details for all the contacts
-    CFArrayRef ContactInfoArray = ABAddressBookCopyArrayOfAllPeople(UsersAddressBook);
-    
-    //get the total number of count of the users contact
-    CFIndex numberofPeople = CFArrayGetCount(ContactInfoArray);
-    
-    //iterate through each record and add the value in the array
-    for (int i =0; i<numberofPeople; i++) {
-        ABRecordRef ref = CFArrayGetValueAtIndex(ContactInfoArray, i);
-        ABMultiValueRef names = (__bridge ABMultiValueRef)((__bridge NSString*)ABRecordCopyValue(ref, kABPersonFirstNameProperty));
-        NSLog(@"name = %@",names);
-        [RetrievedNamesMutableArray addObject:(__bridge id)(names)];
+    APAddressBook *addressBook = [[APAddressBook alloc] init];
+    addressBook.fieldsMask = APContactFieldFirstName | APContactFieldLastName | APContactFieldPhones;
+    [addressBook loadContacts:^(NSArray *contacts, NSError *error) {
+        NSMutableArray *contactsToSave = [contacts mutableCopy];
+        for (int i = 0; i < contactsToSave.count; i++) {
+            APContact *contact = [contactsToSave objectAtIndex:i];
+            if (contact.phones.count == 0) {
+                [contactsToSave removeObject:contact];
+            }
+        }
         
-    }
-    //finally reload the table to see the first name in the table view
-    [tableview reloadData];
+        self.retrievedContacts = contactsToSave;
+        
+        [self.tableView reloadData];
+    }];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return [RetrievedNamesMutableArray count];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.retrievedContacts.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
     
-    UITableViewCell *cell = [tableview dequeueReusableCellWithIdentifier:CellIdentifier];
-        
-    // Configure the cell...
-    
-    if ([RetrievedNamesMutableArray count]>0) {
-        cell.textLabel.text = [RetrievedNamesMutableArray objectAtIndex:indexPath.row];
-        
-    }
-    
+    APContact *contact = self.retrievedContacts[indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", contact.firstName == nil ? @"" : contact.firstName, contact.lastName == nil ? @"" : contact.lastName];
+    cell.detailTextLabel.text = contact.phones[0];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell.accessoryType == UITableViewCellAccessoryNone) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.emergencyContacts addObject:[self.retrievedContacts objectAtIndex:indexPath.row]];
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [self.emergencyContacts removeObject:[self.retrievedContacts objectAtIndex:indexPath.row]];
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
+}
+
+- (IBAction)backButtonPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)doneButtonPressed:(id)sender {
+    [Common sharedInstance].setupEmergencyContacts = self.emergencyContacts;
+    [self performSegueWithIdentifier:@"doneSegue" sender:self];
 }
 
 - (BOOL)prefersStatusBarHidden {

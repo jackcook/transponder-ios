@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "APAddressBook.h"
-#import <AddressBook/AddressBook.h>
-#import <AddressBookUI/AddressBookUI.h>
+#import "APContact.h"
+#import "Common.h"
 
 @interface ContactsViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
+@property (strong, nonatomic) NSMutableArray *emergencyContacts;
 @property (strong, nonatomic) NSArray *retrievedContacts;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

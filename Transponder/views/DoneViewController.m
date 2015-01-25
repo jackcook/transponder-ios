@@ -17,14 +17,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
+    NSArray *emergencyContacts = [Common sharedInstance].setupEmergencyContacts;
+    NSMutableArray *emergencyContactNumbers = [NSMutableArray array];
     
-    [self.locationManager startUpdatingLocation];
+    for (int i = 0; i < emergencyContacts.count; i++) {
+        APContact *contact = [emergencyContacts objectAtIndex:i];
+        [emergencyContactNumbers addObject:contact.phones[0]];
+    }
+    
+    NSString *contactsString = [emergencyContactNumbers componentsJoinedByString:@","];
+    
+    PFObject *userObject = [PFObject objectWithClassName:@"Users"];
+    userObject[@"contacts"] = [[[[[contactsString stringByReplacingOccurrencesOfString:@"-" withString:@""] stringByReplacingOccurrencesOfString:@"(" withString:@""] stringByReplacingOccurrencesOfString:@")" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    [userObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [[NSUserDefaults standardUserDefaults] setObject:userObject.objectId forKey:@"UserObjectID"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    CLLocation *location = locations.lastObject;
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    MainViewController *mvc = [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+    [self presentViewController:mvc animated:true completion:nil];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 @end

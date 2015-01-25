@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import "Common.h"
 
 @interface PhoneViewController : UIViewController
 
