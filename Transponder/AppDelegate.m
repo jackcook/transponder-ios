@@ -33,4 +33,8 @@
     [Common sharedInstance].deviceToken = deviceTokenString;
 }
 
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [Common sharedInstance].needToConfirm = YES;
+}
+
 @end

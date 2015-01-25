@@ -14,6 +14,8 @@
 @synthesize setupEmergencyContacts;
 
 @synthesize venue;
+@synthesize deviceToken;
+@synthesize needToConfirm;
 
 static Common *instance = nil;
 
