@@ -68,6 +68,9 @@
         object[@"pingInterval"] = [NSNumber numberWithInt:self.minutesTextField.text.intValue];
         object[@"lastPing"] = [NSNumber numberWithInt:TIMESTAMP];
         object[@"lastResponse"] = [NSNumber numberWithInt:TIMESTAMP];
+        object[@"expectedName"] = [Common sharedInstance].venue[@"name"];
+        object[@"expectedLatitude"] = [Common sharedInstance].venue[@"location"][@"lat"];
+        object[@"expectedLongitude"] = [Common sharedInstance].venue[@"location"][@"lng"];
         [object saveInBackground];
     }];
     

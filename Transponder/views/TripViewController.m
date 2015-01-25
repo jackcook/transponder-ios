@@ -38,11 +38,16 @@
     
     self.pingLabel.text = [NSString stringWithFormat:@"You will be pinged in %d minutes", self.minutes];
     
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.updateTimer forMode:NSRunLoopCommonModes];
     
-    NSTimer *chartTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(updateChart) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:chartTimer forMode:NSRunLoopCommonModes];
+    self.chartTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(updateChart) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.chartTimer forMode:NSRunLoopCommonModes];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.updateTimer invalidate];
+    [self.chartTimer invalidate];
 }
 
 - (void)updateChart {

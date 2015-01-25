@@ -25,4 +25,7 @@
 @property (strong, nonatomic) IBOutlet UIView *chartHolder;
 @property (strong, nonatomic) IBOutlet UILabel *pingLabel;
 
+@property (strong, nonatomic) NSTimer *updateTimer;
+@property (strong, nonatomic) NSTimer *chartTimer;
+
 @end
