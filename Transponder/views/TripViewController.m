@@ -61,8 +61,6 @@
         self.current = [NSNumber numberWithDouble:self.total.intValue - minutes];
     }];
     
-    self.pingLabel.text = [NSString stringWithFormat:@"You will be pinged in %@ minutes", self.circleChart.countingLabel.text];
-    
     if ([Common sharedInstance].needToConfirm) {
         self.pingLabel.text = @"You need to confirm you're OK";
         [Common sharedInstance].needToConfirm = NO;
@@ -78,6 +76,8 @@
                 }];
             }
         }];
+    } else {
+        self.pingLabel.text = [NSString stringWithFormat:@"You will be pinged in %@ minutes", self.circleChart.countingLabel.text];
     }
 }
 
