@@ -16,8 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self performSelector:@selector(animateLabelsOut) withObject:nil afterDelay:2];
 }
 
 - (void)animateLabelsOut {
@@ -94,6 +92,7 @@
                 [self.doneButton setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
                 [self.doneButton sizeToFit];
                 self.doneButton.frame = CGRectMake(([UIScreen mainScreen].bounds.size.width - self.doneButton.frame.size.width) / 2, self.phoneNumberEntry.frame.origin.y + self.phoneNumberEntry.frame.size.height + 48, self.doneButton.frame.size.width, self.doneButton.frame.size.height);
+                [self.doneButton addTarget:self action:@selector(doneButtonPressed) forControlEvents:UIControlEventTouchUpInside];
                 
                 [self.view addSubview:self.phoneNumberEntry];
                 [self.view addSubview:self.doneButton];
@@ -109,6 +108,17 @@
             }];
         }];
     }];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (!self.animated) {
+        [self animateLabelsOut];
+        self.animated = true;
+    }
+}
+
+- (void)doneButtonPressed {
+    
 }
 
 - (BOOL)prefersStatusBarHidden {

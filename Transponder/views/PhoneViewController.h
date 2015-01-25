@@ -13,6 +13,8 @@
 @property (nonatomic) int transponderHeight;
 @property (nonatomic) int welcomeHeight;
 
+@property (nonatomic) BOOL animated;
+
 @property (strong, nonatomic) IBOutlet UILabel *welcomeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *transponderLabel;
 
