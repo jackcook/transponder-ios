@@ -8,6 +8,9 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import <UIKit/UIKit.h>
+#import "Common.h"
+#import <Parse/Parse.h>
+#import "APContact.h"
 
 @interface DoneViewController : UIViewController<CLLocationManagerDelegate>
 

@@ -17,10 +17,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSArray *emergencyContacts = [Common sharedInstance].setupEmergencyContacts;
+    NSMutableArray *emergencyContactNumbers = [NSMutableArray array];
+    
+    for (int i = 0; i < emergencyContacts.count; i++) {
+        APContact *contact = [emergencyContacts objectAtIndex:i];
+        [emergencyContactNumbers addObject:contact.phones[0]];
+    }
+    
+    NSString *contactsString = [emergencyContactNumbers componentsJoinedByString:@","];
+    
+    PFObject *EmergencyContactObject = [PFObject objectWithClassName:@"EmergencyContact"];
+    EmergencyContactObject[@"emergencyContacts"] = [[[[contactsString stringByReplacingOccurrencesOfString:@"-" withString:@""] stringByReplacingOccurrencesOfString:@"(" withString:@""] stringByReplacingOccurrencesOfString:@")" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    [EmergencyContactObject saveInBackground];
+
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     
     [self.locationManager startUpdatingLocation];
+    
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
