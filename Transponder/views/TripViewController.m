@@ -37,9 +37,32 @@
     self.circleChart.countingLabel.format = @"%d";
     
     self.pingLabel.text = [NSString stringWithFormat:@"You will be pinged in %d minutes", self.minutes];
+    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    
+    NSTimer *chartTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(updateChart) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:chartTimer forMode:NSRunLoopCommonModes];
+}
+
+- (void)updateChart {
+    self.circleChart.duration = 2;
+    [self.circleChart updateChartByCurrent:self.current];
 }
 
 - (void)updateTimer {
+    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+    [query whereKey:@"objectId" equalTo:[[NSUserDefaults standardUserDefaults] objectForKey:@"UserObjectID"]];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        NSLog(@"%@, %d", object[@"lastResponse"], TIMESTAMP);
+        double minutes = (double) (TIMESTAMP - [object[@"lastResponse"] intValue]);
+        minutes /= 60.0;
+        NSLog(@"%f", minutes);
+        self.current = [NSNumber numberWithDouble:self.total.intValue - minutes];
+    }];
+    
+    self.pingLabel.text = [NSString stringWithFormat:@"You will be pinged in %@ minutes", self.circleChart.countingLabel.text];
+    
     if ([Common sharedInstance].needToConfirm) {
         self.pingLabel.text = @"You need to confirm you're OK";
         [Common sharedInstance].needToConfirm = NO;
