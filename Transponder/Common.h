@@ -16,5 +16,6 @@
 @property (strong, nonatomic) NSArray *setupEmergencyContacts;
 
 @property (strong, nonatomic) NSDictionary *venue;
+@property (strong, nonatomic) NSString *deviceToken;
 
 @end
