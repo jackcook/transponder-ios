@@ -51,7 +51,7 @@
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
     
     APContact *contact = self.retrievedContacts[indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", contact.firstName, contact.lastName];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", contact.firstName == nil ? @"" : contact.firstName, contact.lastName == nil ? @"" : contact.lastName];
     cell.detailTextLabel.text = contact.phones[0];
     
     return cell;

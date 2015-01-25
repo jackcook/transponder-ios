@@ -8,6 +8,8 @@
 
 #import "MainViewController.h"
 
+#define TIMESTAMP [NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]].intValue
+
 @interface MainViewController ()
 
 @end
@@ -41,14 +43,15 @@
 - (IBAction)startTripPressed:(id)sender {
     [self performSegueWithIdentifier:@"tripSegue" sender:self];
     
-    NSString *userID = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserObjectID"];
-    NSLog(@"%@", userID);
-    
     PFQuery *query = [PFQuery queryWithClassName:@"Users"];
     [query whereKey:@"objectId" equalTo:[[NSUserDefaults standardUserDefaults] objectForKey:@"UserObjectID"]];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         object[@"latitude"] = @(self.latitude);
         object[@"longitude"] = @(self.longitude);
+        object[@"onTrip"] = [NSNumber numberWithBool:YES];
+        object[@"pingInterval"] = [NSNumber numberWithInt:self.minutesTextField.text.intValue];
+        object[@"lastPing"] = [NSNumber numberWithInt:TIMESTAMP];
+        object[@"lastResponse"] = [NSNumber numberWithInt:TIMESTAMP];
         [object saveInBackground];
     }];
     

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <LocalAuthentication/LocalAuthentication.h>
 #import "PNChart.h"
+#import "MBProgressHUD.h"
+#import <Parse/Parse.h>
 
 @interface TripViewController : UIViewController
 
