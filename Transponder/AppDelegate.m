@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <AddressBookUI/AddressBookUI.h>
+#import <AddressBook/AddressBook.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +19,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [Parse setApplicationId:@"lkHCX43bL8tqi0kpiICrOdXLlcx6yxDs3k9rUE5A"
+                  clientKey:@"qmvU3RyfyRyzqofNORn7lrVSBbosS4cyPlXK6mdN"];
+    
+    ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, NULL);
+    if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined) {
+        ABAddressBookRequestAccessWithCompletion(addressBookRef, ^(bool granted, CFErrorRef error) {
+            if (granted) {
+                NSLog(@"Access granted!");
+            } else {
+                NSLog(@"Access denied!");
+            }
+        });
+    }
     return YES;
 }
 

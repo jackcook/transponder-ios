@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16289B611A745F6B00DF5847 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16289B601A745F6B00DF5847 /* ContactsViewController.m */; };
+		16289B631A745F8000DF5847 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16289B621A745F8000DF5847 /* AddressBook.framework */; };
+		16289B651A745F8700DF5847 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16289B641A745F8700DF5847 /* AddressBookUI.framework */; };
 		2B7014D544CC6EA20B97EB9B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4767BCE0CA619072E63D3BD3 /* libPods.a */; };
 		EB1067F11A74467B00BA4E5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1067F01A74467B00BA4E5B /* main.m */; };
 		EB1067F41A74467B00BA4E5B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1067F31A74467B00BA4E5B /* AppDelegate.m */; };
@@ -28,6 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16289B5F1A745F6B00DF5847 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
+		16289B601A745F6B00DF5847 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
+		16289B621A745F8000DF5847 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		16289B641A745F8700DF5847 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		4767BCE0CA619072E63D3BD3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FCF838426DB7D30D8631581 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A7A1B6526BFE2190156FDF74 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -51,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16289B651A745F8700DF5847 /* AddressBookUI.framework in Frameworks */,
+				16289B631A745F8000DF5847 /* AddressBook.framework in Frameworks */,
 				2B7014D544CC6EA20B97EB9B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,6 +77,8 @@
 		1EED504199DAE0B605C480B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				16289B641A745F8700DF5847 /* AddressBookUI.framework */,
+				16289B621A745F8000DF5847 /* AddressBook.framework */,
 				4767BCE0CA619072E63D3BD3 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -113,6 +124,8 @@
 				EB1067EE1A74467B00BA4E5B /* Supporting Files */,
 				EBF071741A74506400BE70E5 /* PhoneViewController.h */,
 				EBF071751A74506400BE70E5 /* PhoneViewController.m */,
+				16289B5F1A745F6B00DF5847 /* ContactsViewController.h */,
+				16289B601A745F6B00DF5847 /* ContactsViewController.m */,
 			);
 			path = Transponder;
 			sourceTree = "<group>";
@@ -279,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBF071761A74506400BE70E5 /* PhoneViewController.m in Sources */,
+				16289B611A745F6B00DF5847 /* ContactsViewController.m in Sources */,
 				EB1067F41A74467B00BA4E5B /* AppDelegate.m in Sources */,
 				EB1067F11A74467B00BA4E5B /* main.m in Sources */,
 			);
