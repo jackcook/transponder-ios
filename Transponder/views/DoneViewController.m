@@ -27,19 +27,12 @@
     
     NSString *contactsString = [emergencyContactNumbers componentsJoinedByString:@","];
     
-    PFObject *EmergencyContactObject = [PFObject objectWithClassName:@"EmergencyContact"];
-    EmergencyContactObject[@"emergencyContacts"] = [[[[contactsString stringByReplacingOccurrencesOfString:@"-" withString:@""] stringByReplacingOccurrencesOfString:@"(" withString:@""] stringByReplacingOccurrencesOfString:@")" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
-    [EmergencyContactObject saveInBackground];
-
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    
-    [self.locationManager startUpdatingLocation];
-    
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    CLLocation *location = locations.lastObject;
+    PFObject *userObject = [PFObject objectWithClassName:@"Users"];
+    userObject[@"contacts"] = [[[[contactsString stringByReplacingOccurrencesOfString:@"-" withString:@""] stringByReplacingOccurrencesOfString:@"(" withString:@""] stringByReplacingOccurrencesOfString:@")" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    [userObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [[NSUserDefaults standardUserDefaults] setObject:userObject.objectId forKey:@"UserObjectID"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {

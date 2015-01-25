@@ -13,6 +13,7 @@
 		EB1003091A748AFC00361A75 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1003081A748AFC00361A75 /* Common.m */; };
 		EB10030C1A74962D00361A75 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10030B1A74962D00361A75 /* MainViewController.m */; };
 		EB1003101A74AAD400361A75 /* UILabel+WhiteUIDatePickerLabels.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10030F1A74AAD400361A75 /* UILabel+WhiteUIDatePickerLabels.m */; };
+		EB1003131A74C48F00361A75 /* TripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1003121A74C48F00361A75 /* TripViewController.m */; };
 		EB1067F11A74467B00BA4E5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1067F01A74467B00BA4E5B /* main.m */; };
 		EB1067F41A74467B00BA4E5B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1067F31A74467B00BA4E5B /* AppDelegate.m */; };
 		EB1067FA1A74467B00BA4E5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB1067F81A74467B00BA4E5B /* Main.storyboard */; };
@@ -46,6 +47,8 @@
 		EB10030B1A74962D00361A75 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = views/MainViewController.m; sourceTree = "<group>"; };
 		EB10030E1A74AAD400361A75 /* UILabel+WhiteUIDatePickerLabels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+WhiteUIDatePickerLabels.h"; sourceTree = "<group>"; };
 		EB10030F1A74AAD400361A75 /* UILabel+WhiteUIDatePickerLabels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+WhiteUIDatePickerLabels.m"; sourceTree = "<group>"; };
+		EB1003111A74C48F00361A75 /* TripViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TripViewController.h; path = views/TripViewController.h; sourceTree = "<group>"; };
+		EB1003121A74C48F00361A75 /* TripViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TripViewController.m; path = views/TripViewController.m; sourceTree = "<group>"; };
 		EB1067EB1A74467B00BA4E5B /* Transponder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transponder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB1067EF1A74467B00BA4E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB1067F01A74467B00BA4E5B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -154,6 +157,8 @@
 				EB1003081A748AFC00361A75 /* Common.m */,
 				EB10030A1A74962D00361A75 /* MainViewController.h */,
 				EB10030B1A74962D00361A75 /* MainViewController.m */,
+				EB1003111A74C48F00361A75 /* TripViewController.h */,
+				EB1003121A74C48F00361A75 /* TripViewController.m */,
 			);
 			path = Transponder;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 				TargetAttributes = {
 					EB1067EA1A74467B00BA4E5B = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = JDJKS788L2;
 					};
 					EB1068031A74467B00BA4E5B = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -319,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB1003131A74C48F00361A75 /* TripViewController.m in Sources */,
 				EB1003091A748AFC00361A75 /* Common.m in Sources */,
 				EBF071791A74755700BE70E5 /* DoneViewController.m in Sources */,
 				EB1003101A74AAD400361A75 /* UILabel+WhiteUIDatePickerLabels.m in Sources */,
@@ -449,6 +456,7 @@
 			baseConfigurationReference = A7A1B6526BFE2190156FDF74 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Transponder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -460,6 +468,7 @@
 			baseConfigurationReference = 9FCF838426DB7D30D8631581 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Transponder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

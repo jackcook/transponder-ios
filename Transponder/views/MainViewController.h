@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import <Parse/Parse.h>
 
-@interface MainViewController : UIViewController<UITextFieldDelegate>
+@interface MainViewController : UIViewController<CLLocationManagerDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *minutesTextField;
+
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
 
 @end
