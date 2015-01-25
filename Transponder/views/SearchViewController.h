@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Common.h"
+#import "TripViewController.h"
 
 @interface SearchViewController : UIViewController<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 

@@ -50,7 +50,16 @@
 }
 
 - (IBAction)startTripPressed:(id)sender {
-    [self performSegueWithIdentifier:@"tripSegue" sender:self];
+    TripViewController *tvc = [self.storyboard instantiateViewControllerWithIdentifier:@"TripViewController"];
+    
+    int current = TIMESTAMP / 60;
+    int last = self.minutesTextField.text.intValue / 60;
+    tvc.current = [NSNumber numberWithInt:self.minutesTextField.text.intValue - (current - last)];
+    tvc.total = [NSNumber numberWithInteger:self.minutesTextField.text.intValue];
+    
+    tvc.minutes = 50 / (self.minutesTextField.text.intValue) * (self.minutesTextField.text.intValue - (current - last));
+    
+    [self presentViewController:tvc animated:true completion:nil];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Users"];
     [query whereKey:@"objectId" equalTo:[[NSUserDefaults standardUserDefaults] objectForKey:@"UserObjectID"]];

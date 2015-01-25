@@ -850,7 +850,7 @@
         <!--Trip View Controller-->
         <scene sceneID="Y7q-hp-84S">
             <objects>
-                <viewController id="wtt-e6-oJU" customClass="TripViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TripViewController" id="wtt-e6-oJU" customClass="TripViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gHD-7c-3wW"/>
                         <viewControllerLayoutGuide type="bottom" id="iQs-FZ-Ige"/>
