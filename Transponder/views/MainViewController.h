@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <Parse/Parse.h>
+#import "Common.h"
+#import "SearchViewController.h"
 
 @interface MainViewController : UIViewController<CLLocationManagerDelegate, UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutlet UILabel *placeLabel;
 @property (strong, nonatomic) IBOutlet UITextField *minutesTextField;
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
