@@ -17,13 +17,6 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
-}
-
-- (void)keyboardDidShow:(NSNotification *)notification {
-    int keyboardHeight = [[[notification userInfo] valueForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
-    self.tableView.frame = CGRectMake(0, self.searchBar.frame.size.height, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - self.searchBar.frame.size.height - keyboardHeight);
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
