@@ -10,10 +10,17 @@
 
 @interface PhoneViewController : UIViewController
 
+@property (nonatomic) int transponderHeight;
+@property (nonatomic) int welcomeHeight;
+
 @property (strong, nonatomic) IBOutlet UILabel *welcomeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *transponderLabel;
 
 @property (strong, nonatomic) UILabel *startLabel;
 @property (strong, nonatomic) UILabel *enterLabel;
+@property (strong, nonatomic) UILabel *enterLabel2;
+
+@property (strong, nonatomic) UITextView *phoneNumberEntry;
+@property (strong, nonatomic) UIButton *doneButton;
 
 @end
