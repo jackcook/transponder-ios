@@ -11,6 +11,7 @@
 #import "PNChart.h"
 #import "MBProgressHUD.h"
 #import <Parse/Parse.h>
+#import "MainViewController.h"
 
 @interface TripViewController : UIViewController
 

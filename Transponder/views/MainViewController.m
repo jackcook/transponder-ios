@@ -53,7 +53,7 @@
     TripViewController *tvc = [self.storyboard instantiateViewControllerWithIdentifier:@"TripViewController"];
     
     int current = TIMESTAMP / 60;
-    int last = self.minutesTextField.text.intValue / 60;
+    int last = TIMESTAMP / 60;
     tvc.current = [NSNumber numberWithInt:self.minutesTextField.text.intValue - (current - last)];
     tvc.total = [NSNumber numberWithInteger:self.minutesTextField.text.intValue];
     

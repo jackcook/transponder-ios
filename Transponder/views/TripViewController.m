@@ -40,7 +40,8 @@
     LAContext *context = [[LAContext alloc] init];
     [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:@"Transponder needs Touch ID to verify it's you" reply:^(BOOL success, NSError *error) {
         if (success) {
-            [self.navigationController popViewControllerAnimated:YES];
+            MainViewController *mvc = [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+            [self presentViewController:mvc animated:YES completion:nil];
             
             PFQuery *query = [PFQuery queryWithClassName:@"Users"];
             [query whereKey:@"objectId" equalTo:[[NSUserDefaults standardUserDefaults] objectForKey:@"UserObjectID"]];
