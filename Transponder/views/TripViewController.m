@@ -54,10 +54,8 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Users"];
     [query whereKey:@"objectId" equalTo:[[NSUserDefaults standardUserDefaults] objectForKey:@"UserObjectID"]];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        NSLog(@"%@, %d", object[@"lastResponse"], TIMESTAMP);
         double minutes = (double) (TIMESTAMP - [object[@"lastResponse"] intValue]);
         minutes /= 60.0;
-        NSLog(@"%f", minutes);
         self.current = [NSNumber numberWithDouble:self.total.intValue - minutes];
     }];
     

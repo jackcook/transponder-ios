@@ -12,7 +12,7 @@
 
 + (Common *)sharedInstance;
 
-@property (nonatomic) int setupPhoneNumber;
+@property (strong, nonatomic) NSString *fullName;
 @property (strong, nonatomic) NSArray *setupEmergencyContacts;
 
 @property (strong, nonatomic) NSDictionary *venue;

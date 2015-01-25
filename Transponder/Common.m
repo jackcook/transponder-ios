@@ -10,7 +10,7 @@
 
 @implementation Common
 
-@synthesize setupPhoneNumber;
+@synthesize fullName;
 @synthesize setupEmergencyContacts;
 
 @synthesize venue;

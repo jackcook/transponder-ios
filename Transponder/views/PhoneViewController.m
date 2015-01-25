@@ -46,7 +46,7 @@
     self.startLabel.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, self.welcomeHeight, self.startLabel.frame.size.width, self.startLabel.frame.size.height);
     
     self.enterLabel = [[UILabel alloc] init];
-    self.enterLabel.text = @"enter your phone number";
+    self.enterLabel.text = @"enter your full name";
     self.enterLabel.textColor = [UIColor whiteColor];
     self.enterLabel.font = [UIFont fontWithName:@"Avenir-Roman" size:28.0];
     [self.enterLabel sizeToFit];
@@ -78,7 +78,9 @@
                 self.phoneNumberEntry.font = [UIFont fontWithName:@"Avenir-Roman" size:28.0];
                 self.phoneNumberEntry.textColor = [UIColor whiteColor];
                 self.phoneNumberEntry.textAlignment = NSTextAlignmentCenter;
-                self.phoneNumberEntry.keyboardType = UIKeyboardTypePhonePad;
+                self.phoneNumberEntry.keyboardType = UIKeyboardTypeAlphabet;
+                self.phoneNumberEntry.delegate = self;
+                self.phoneNumberEntry.autocapitalizationType = UITextAutocapitalizationTypeWords;
                 
                 CALayer *bottomBorder = [CALayer layer];
                 bottomBorder.frame = CGRectMake(0, self.phoneNumberEntry.frame.size.height - 2, self.phoneNumberEntry.frame.size.width, 2);
@@ -110,6 +112,11 @@
     }];
 }
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "];
+    return [[text stringByTrimmingCharactersInSet:set] isEqualToString:@""];
+}
+
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     if (!self.animated) {
         [self animateLabelsOut];
@@ -118,7 +125,7 @@
 }
 
 - (void)doneButtonPressed {
-    [Common sharedInstance].setupPhoneNumber = self.phoneNumberEntry.text.intValue;
+    [Common sharedInstance].fullName = self.phoneNumberEntry.text;
     [self performSegueWithIdentifier:@"contactsSegue" sender:nil];
 }
 

@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "Common.h"
 
-@interface PhoneViewController : UIViewController
+@interface PhoneViewController : UIViewController<UITextViewDelegate>
 
 @property (nonatomic) int transponderHeight;
 @property (nonatomic) int welcomeHeight;
