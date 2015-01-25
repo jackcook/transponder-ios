@@ -15,6 +15,7 @@
 		EB1067FF1A74467B00BA4E5B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB1067FD1A74467B00BA4E5B /* LaunchScreen.xib */; };
 		EB10680B1A74467B00BA4E5B /* TransponderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB10680A1A74467B00BA4E5B /* TransponderTests.m */; };
 		EBF071761A74506400BE70E5 /* PhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF071751A74506400BE70E5 /* PhoneViewController.m */; };
+		EBF071791A74755700BE70E5 /* DoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF071781A74755700BE70E5 /* DoneViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,8 @@
 		EB10680A1A74467B00BA4E5B /* TransponderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransponderTests.m; sourceTree = "<group>"; };
 		EBF071741A74506400BE70E5 /* PhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhoneViewController.h; path = views/PhoneViewController.h; sourceTree = "<group>"; };
 		EBF071751A74506400BE70E5 /* PhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhoneViewController.m; path = views/PhoneViewController.m; sourceTree = "<group>"; };
+		EBF071771A74755700BE70E5 /* DoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DoneViewController.h; path = views/DoneViewController.h; sourceTree = "<group>"; };
+		EBF071781A74755700BE70E5 /* DoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DoneViewController.m; path = views/DoneViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,8 @@
 				EB1067EE1A74467B00BA4E5B /* Supporting Files */,
 				EBF071741A74506400BE70E5 /* PhoneViewController.h */,
 				EBF071751A74506400BE70E5 /* PhoneViewController.m */,
+				EBF071771A74755700BE70E5 /* DoneViewController.h */,
+				EBF071781A74755700BE70E5 /* DoneViewController.m */,
 			);
 			path = Transponder;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBF071791A74755700BE70E5 /* DoneViewController.m in Sources */,
 				EBF071761A74506400BE70E5 /* PhoneViewController.m in Sources */,
 				EB1067F41A74467B00BA4E5B /* AppDelegate.m in Sources */,
 				EB1067F11A74467B00BA4E5B /* main.m in Sources */,
