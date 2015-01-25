@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.emergencyContacts = [NSMutableArray array];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -59,8 +61,10 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (cell.accessoryType == UITableViewCellAccessoryNone) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.emergencyContacts addObject:[self.retrievedContacts objectAtIndex:indexPath.row]];
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
+        [self.emergencyContacts removeObject:[self.retrievedContacts objectAtIndex:indexPath.row]];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:true];
@@ -71,7 +75,7 @@
 }
 
 - (IBAction)doneButtonPressed:(id)sender {
-    [Common sharedInstance].setupEmergencyContacts = self.retrievedContacts;
+    [Common sharedInstance].setupEmergencyContacts = self.emergencyContacts;
     [self performSegueWithIdentifier:@"doneSegue" sender:self];
 }
 
