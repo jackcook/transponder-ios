@@ -362,10 +362,13 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <segue destination="lCg-ud-6JY" kind="show" identifier="mainSegue" id="Aeo-2z-p1j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FkP-UY-Cw7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3595.5" y="-294.75"/>
+            <point key="canvasLocation" x="3651" y="-294.75"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="gKS-5V-SWZ">
@@ -1095,4 +1098,7 @@
             <point key="canvasLocation" x="540" y="387"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Aeo-2z-p1j"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -10,9 +10,7 @@
 
 @implementation SearchViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
+- (void)viewDidAppear:(BOOL)animated {
     self.searchBar.delegate = self;
     
     self.tableView.delegate = self;
@@ -36,7 +34,10 @@
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         id json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         self.venues = json[@"response"][@"venues"];
+        
         [self.tableView reloadData];
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
     }];
 }
 

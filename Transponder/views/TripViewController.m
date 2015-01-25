@@ -23,9 +23,6 @@
     self.circleChart.circleBackground.strokeColor = [UIColor colorWithRed:(4.0 / 255.0) green:(22.0 / 255.0) blue:(40.0 / 255.0) alpha:1].CGColor;
     
     [self.chartHolder addSubview:self.circleChart];
-    
-    NSTimer *timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -38,15 +35,15 @@
     
     self.pingLabel.text = [NSString stringWithFormat:@"You will be pinged in %d minutes", self.minutes];
     
-    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:self.updateTimer forMode:NSRunLoopCommonModes];
+    self.udateTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.udateTimer forMode:NSRunLoopCommonModes];
     
     self.chartTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(updateChart) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:self.chartTimer forMode:NSRunLoopCommonModes];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [self.updateTimer invalidate];
+    [self.udateTimer invalidate];
     [self.chartTimer invalidate];
 }
 
@@ -60,7 +57,7 @@
     [query whereKey:@"objectId" equalTo:[[NSUserDefaults standardUserDefaults] objectForKey:@"UserObjectID"]];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         double minutes = (double) (TIMESTAMP - [object[@"lastResponse"] intValue]);
-        minutes /= 60.0;
+        minutes /= 15.0;
         self.current = [NSNumber numberWithDouble:self.total.intValue - minutes];
     }];
     

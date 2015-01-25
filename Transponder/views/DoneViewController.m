@@ -40,8 +40,10 @@
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    MainViewController *mvc = [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-    [self presentViewController:mvc animated:true completion:nil];
+    //MainViewController *mvc = [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+    //[self presentViewController:mvc animated:true completion:nil];
+    
+    [self performSegueWithIdentifier:@"mainSegue" sender: self];
 }
 
 - (BOOL)prefersStatusBarHidden {
