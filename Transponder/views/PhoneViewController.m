@@ -118,6 +118,7 @@
 }
 
 - (void)doneButtonPressed {
+    [Common sharedInstance].setupPhoneNumber = self.phoneNumberEntry.text.intValue;
     [self performSegueWithIdentifier:@"contactsSegue" sender:nil];
 }
 

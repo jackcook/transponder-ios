@@ -183,6 +183,9 @@
                                         <include reference="SVo-Qh-Den"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="bzE-VH-nGw" eventType="touchUpInside" id="A6H-W0-e9r"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwl-Lm-F61">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -206,6 +209,9 @@
                                         <include reference="epv-lT-dhn"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="bzE-VH-nGw" eventType="touchUpInside" id="GNP-Qq-uzF"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -234,17 +240,17 @@
                                 <exclude reference="Jwl-Lm-F61"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Fg7-ao-KDB"/>
-                                <exclude reference="ri8-gk-QzV"/>
-                                <exclude reference="Wnq-FJ-813"/>
-                                <exclude reference="fdf-2o-vHg"/>
-                                <exclude reference="wRd-MM-Jhd"/>
+                                <exclude reference="xex-OL-lrZ"/>
                                 <exclude reference="7ID-2y-fhQ"/>
                                 <exclude reference="cRw-Ch-VxE"/>
+                                <exclude reference="Fg7-ao-KDB"/>
+                                <exclude reference="ri8-gk-QzV"/>
                                 <exclude reference="29J-Iw-pUg"/>
                                 <exclude reference="4v7-X0-WE6"/>
                                 <exclude reference="fLv-yh-Tey"/>
-                                <exclude reference="xex-OL-lrZ"/>
+                                <exclude reference="Wnq-FJ-813"/>
+                                <exclude reference="fdf-2o-vHg"/>
+                                <exclude reference="wRd-MM-Jhd"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -255,28 +261,46 @@
                                 <include reference="Jwl-Lm-F61"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Fg7-ao-KDB"/>
-                                <include reference="ri8-gk-QzV"/>
-                                <include reference="Wnq-FJ-813"/>
-                                <include reference="fdf-2o-vHg"/>
-                                <include reference="wRd-MM-Jhd"/>
+                                <include reference="xex-OL-lrZ"/>
                                 <include reference="7ID-2y-fhQ"/>
                                 <include reference="cRw-Ch-VxE"/>
+                                <include reference="Fg7-ao-KDB"/>
+                                <include reference="ri8-gk-QzV"/>
                                 <include reference="29J-Iw-pUg"/>
                                 <include reference="4v7-X0-WE6"/>
                                 <include reference="fLv-yh-Tey"/>
-                                <include reference="xex-OL-lrZ"/>
+                                <include reference="Wnq-FJ-813"/>
+                                <include reference="fdf-2o-vHg"/>
+                                <include reference="wRd-MM-Jhd"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="hBu-km-2mA"/>
                     <connections>
                         <outlet property="tableView" destination="d8y-eJ-oSn" id="7yH-cH-0vQ"/>
+                        <segue destination="QOo-be-6Ad" kind="show" identifier="doneSegue" id="tNR-RS-50e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IC5-PB-xX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2571" y="387"/>
+        </scene>
+        <!--Done View Controller-->
+        <scene sceneID="7yc-3h-de2">
+            <objects>
+                <viewController id="QOo-be-6Ad" customClass="DoneViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lmr-DF-ib0"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kt8-k8-bUc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AUl-Fi-ZXL">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FkP-UY-Cw7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3660" y="387"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yMb-yx-I45">

@@ -66,6 +66,15 @@
     [tableView deselectRowAtIndexPath:indexPath animated:true];
 }
 
+- (IBAction)backButtonPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)doneButtonPressed:(id)sender {
+    [Common sharedInstance].setupEmergencyContacts = self.retrievedContacts;
+    [self performSegueWithIdentifier:@"doneSegue" sender:self];
+}
+
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }

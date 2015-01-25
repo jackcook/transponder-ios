@@ -10,6 +10,7 @@
 		16289B631A745F8000DF5847 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16289B621A745F8000DF5847 /* AddressBook.framework */; };
 		16289B651A745F8700DF5847 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16289B641A745F8700DF5847 /* AddressBookUI.framework */; };
 		2B7014D544CC6EA20B97EB9B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4767BCE0CA619072E63D3BD3 /* libPods.a */; };
+		EB1003091A748AFC00361A75 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1003081A748AFC00361A75 /* Common.m */; };
 		EB1067F11A74467B00BA4E5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1067F01A74467B00BA4E5B /* main.m */; };
 		EB1067F41A74467B00BA4E5B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1067F31A74467B00BA4E5B /* AppDelegate.m */; };
 		EB1067FA1A74467B00BA4E5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB1067F81A74467B00BA4E5B /* Main.storyboard */; };
@@ -37,6 +38,8 @@
 		4767BCE0CA619072E63D3BD3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FCF838426DB7D30D8631581 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A7A1B6526BFE2190156FDF74 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EB1003071A748AFC00361A75 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		EB1003081A748AFC00361A75 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		EB1067EB1A74467B00BA4E5B /* Transponder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transponder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB1067EF1A74467B00BA4E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB1067F01A74467B00BA4E5B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -131,6 +134,8 @@
 				EBF071781A74755700BE70E5 /* DoneViewController.m */,
 				EBF071741A74506400BE70E5 /* PhoneViewController.h */,
 				EBF071751A74506400BE70E5 /* PhoneViewController.m */,
+				EB1003071A748AFC00361A75 /* Common.h */,
+				EB1003081A748AFC00361A75 /* Common.m */,
 			);
 			path = Transponder;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB1003091A748AFC00361A75 /* Common.m in Sources */,
 				EBF071791A74755700BE70E5 /* DoneViewController.m in Sources */,
 				EBF0717F1A747BE200BE70E5 /* ContactsViewController.m in Sources */,
 				EBF071761A74506400BE70E5 /* PhoneViewController.m in Sources */,
