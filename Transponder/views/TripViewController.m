@@ -75,7 +75,27 @@
             }
         }];
     } else {
-        self.pingLabel.text = [NSString stringWithFormat:@"You will be pinged in %@ minutes", self.circleChart.countingLabel.text];
+        if (self.current.intValue < 0) {
+            if (!self.displayingTouchID) {
+                self.displayingTouchID = YES;
+                LAContext *context = [[LAContext alloc] init];
+                [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:@"Transponder needs Touch ID to verify your identity" reply:^(BOOL success, NSError *error) {
+                    if (success) {
+                        PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+                        [query whereKey:@"objectId" equalTo:[[NSUserDefaults standardUserDefaults] objectForKey:@"UserObjectID"]];
+                        [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+                            object[@"lastResponse"] = [NSNumber numberWithInt:TIMESTAMP];
+                            [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                self.current = 0;
+                                self.displayingTouchID = NO;
+                            }];
+                        }];
+                    }
+                }];
+            }
+        } else {
+            self.pingLabel.text = [NSString stringWithFormat:@"You will be pinged in %@ minutes", self.circleChart.countingLabel.text];
+        }
     }
 }
 

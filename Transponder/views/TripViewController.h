@@ -18,6 +18,7 @@
 @property (nonatomic) NSNumber *current;
 @property (nonatomic) NSNumber *total;
 @property (nonatomic) int minutes;
+@property (nonatomic) BOOL displayingTouchID;
 
 @property (strong, nonatomic) PNCircleChart *circleChart;
 

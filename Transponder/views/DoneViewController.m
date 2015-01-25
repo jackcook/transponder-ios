@@ -31,6 +31,8 @@
     userObject[@"contacts"] = [[[[[contactsString stringByReplacingOccurrencesOfString:@"-" withString:@""] stringByReplacingOccurrencesOfString:@"(" withString:@""] stringByReplacingOccurrencesOfString:@")" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
     userObject[@"name"] = [Common sharedInstance].fullName;
     userObject[@"deviceToken"] = [Common sharedInstance].deviceToken;
+    userObject[@"emergencySent"] = [NSNumber numberWithBool:NO];
+    userObject[@"confirmationSent"] = [NSNumber numberWithBool:NO];
     [userObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [[NSUserDefaults standardUserDefaults] setObject:userObject.objectId forKey:@"UserObjectID"];
         [[NSUserDefaults standardUserDefaults] synchronize];
