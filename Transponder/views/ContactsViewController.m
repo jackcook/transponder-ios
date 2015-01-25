@@ -21,9 +21,17 @@
     self.tableView.dataSource = self;
     
     APAddressBook *addressBook = [[APAddressBook alloc] init];
-    addressBook.fieldsMask = APContactFieldFirstName;
+    addressBook.fieldsMask = APContactFieldFirstName | APContactFieldLastName | APContactFieldPhones;
     [addressBook loadContacts:^(NSArray *contacts, NSError *error) {
-        self.retrievedContacts = contacts;
+        NSMutableArray *contactsToSave = [contacts mutableCopy];
+        for (int i = 0; i < contactsToSave.count; i++) {
+            APContact *contact = [contactsToSave objectAtIndex:i];
+            if (contact.phones.count == 0) {
+                [contactsToSave removeObject:contact];
+            }
+        }
+        
+        self.retrievedContacts = contactsToSave;
         
         [self.tableView reloadData];
     }];
@@ -38,12 +46,24 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
     
     APContact *contact = self.retrievedContacts[indexPath.row];
-    cell.textLabel.text = contact.firstName;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", contact.firstName, contact.lastName];
+    cell.detailTextLabel.text = contact.phones[0];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell.accessoryType == UITableViewCellAccessoryNone) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
 }
 
 - (BOOL)prefersStatusBarHidden {
