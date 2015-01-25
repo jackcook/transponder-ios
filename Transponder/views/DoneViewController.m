@@ -29,6 +29,7 @@
     
     PFObject *userObject = [PFObject objectWithClassName:@"Users"];
     userObject[@"contacts"] = [[[[[contactsString stringByReplacingOccurrencesOfString:@"-" withString:@""] stringByReplacingOccurrencesOfString:@"(" withString:@""] stringByReplacingOccurrencesOfString:@")" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    userObject[@"phoneNumber"] = [NSNumber numberWithInt:[Common sharedInstance].setupPhoneNumber];
     [userObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [[NSUserDefaults standardUserDefaults] setObject:userObject.objectId forKey:@"UserObjectID"];
         [[NSUserDefaults standardUserDefaults] synchronize];
