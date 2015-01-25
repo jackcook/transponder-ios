@@ -118,7 +118,7 @@
 }
 
 - (void)doneButtonPressed {
-    
+    [self performSegueWithIdentifier:@"contactsSegue" sender:nil];
 }
 
 - (BOOL)prefersStatusBarHidden {

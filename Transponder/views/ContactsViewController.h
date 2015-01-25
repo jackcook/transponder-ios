@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APAddressBook.h"
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
 
-@interface ContactsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
-    
-    NSMutableArray *RetrievedNamesMutableArray;
+@interface ContactsViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
-    IBOutlet UITableView *tableview;
-}
+@property (strong, nonatomic) NSArray *retrievedContacts;
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
