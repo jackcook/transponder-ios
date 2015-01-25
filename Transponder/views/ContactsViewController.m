@@ -25,11 +25,12 @@
     APAddressBook *addressBook = [[APAddressBook alloc] init];
     addressBook.fieldsMask = APContactFieldFirstName | APContactFieldLastName | APContactFieldPhones;
     [addressBook loadContacts:^(NSArray *contacts, NSError *error) {
-        NSMutableArray *contactsToSave = [contacts mutableCopy];
-        for (int i = 0; i < contactsToSave.count; i++) {
-            APContact *contact = [contactsToSave objectAtIndex:i];
-            if (contact.phones.count == 0) {
-                [contactsToSave removeObject:contact];
+        NSMutableArray *contactsToSave = [NSMutableArray array];
+        
+        for (int i = 0; i < contacts.count; i++) {
+            APContact *contact = [contacts objectAtIndex:i];
+            if (contact.phones.count > 0) {
+                [contactsToSave addObject:contact];
             }
         }
         
